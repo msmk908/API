@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        #mapModal {
+            display: none; /* 모달 숨기기 */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+
+</head>
+<body>
+<!-- 현재 날씨 API -->
+<button class="button" type="button">현재 날씨는?</button>
+<dl>
+    <dt>기온</dt>
+    <dd class="temperature"></dd>
+    <dt>위치</dt>
+    <dd class="place"></dd>
+    <dt>설명</dt>
+    <dd class="description"></dd>
+    <img class="icon" />
+</dl>
+
+<!-- 주소 입력 API -->
+<input type="text" id="sample5_address" placeholder="주소">
+<input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+<input type="text" id="detailAddress" placeholder="상세주소"><br>
+<button onclick="showMap()">위치보기</button>
+<div id="mapd" style="width:300px;height:300px;margin-top:10px;display:none"></div>
+
+<!-- 모달 -->
+<div id="mapModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="map" style="width:100%;height:400px;"></div>
+    </div>
+</div>
+
+<script src="/js/weather.js"></script>
+<script src="/js/daum.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=76338ad8e066416dd07f2eb51664a525&libraries=services"></script>
+</body>
+</html>
