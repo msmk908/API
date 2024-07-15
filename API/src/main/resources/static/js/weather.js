@@ -39,7 +39,9 @@ button.addEventListener('click', () => {
 
 const success = (position) => {
     const latitude = position.coords.latitude;
+    console.log(latitude);
     const longitude = position.coords.longitude;
+    console.log(longitude);
 
     getWeather(latitude, longitude);
 };

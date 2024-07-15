@@ -9,7 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 
     @GetMapping("/")
+    public String upload(){
+        return "upload";
+    }
+
+    @GetMapping("/main")
     public String Main(){
         return "mainPage";
     }
+
 }
